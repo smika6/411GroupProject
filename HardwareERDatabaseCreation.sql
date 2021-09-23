@@ -1,17 +1,45 @@
 #CREATETABLE STATEMENTS
-CREATE TABLE Address ();
+CREATE TABLE Address (
+    streetID int NOT NULL PRIMARY KEY,
+    street varchar(255),
+    city varchar(255),
+    state varchar(2)
+);
 
-CREATE TABLE PersonAddress ();
+CREATE TABLE PersonAddress (
+    pstreetID int NOT NULL PRIMARY KEY,
+    pstreet varchar(255),
+    pcity varchar(255),
+    pstate varchar(2)
 
-CREATE TABLE SupplierLocation ();
+);
 
-CREATE TABLE Person ();
+CREATE TABLE SupplierLocation (
+    wsstreetID int NOT NULL PRIMARY KEY,
+    wsstreet varchar(255),
+    wscity varchar(255),
+    wsstate varchar(2)
+);
 
-CREATE TABLE Employee ();
+CREATE TABLE Person (
+    personID int NOT NULL PRIMARY KEY,
+    name varchar(255)
+);
 
-CREATE TABLE Customer ();
+CREATE TABLE Employee (
+    employeeID int NOT NULL PRIMARY KEY,
+    name varchar(255)
+);
 
-CREATE TABLE Supplier ();
+CREATE TABLE Customer (
+    customerID int NOT NULL PRIMARY KEY,
+    name varchar(255)
+);
+
+CREATE TABLE Supplier (
+    supplierID int NOT NULL PRIMARY KEY,
+    name varchar(255)
+);
 
 CREATE TABLE Items (
     itemID int NOT NULL PRIMARY KEY,
