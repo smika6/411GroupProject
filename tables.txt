@@ -1,0 +1,15 @@
+1) address
+2) person address
+3) supplier location
+4) person
+5) employee
+6) customer
+7) supplier
+8) Items
+9) hardware items
+10) service items
+11) HW used in service
+12) customer purchases
+13) deliveries
+14) purchase from supplier
+15) employee perform service
