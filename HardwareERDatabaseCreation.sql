@@ -1,7 +1,26 @@
 #CREATETABLE STATEMENTS
+CREATE TABLE Address ();
+
+CREATE TABLE PersonAddress ();
+
+CREATE TABLE SupplierLocation ();
+
+CREATE TABLE Person ();
+
+CREATE TABLE Employee ();
+
+CREATE TABLE Customer ();
+
+CREATE TABLE Supplier ();
 
 CREATE TABLE Items (
     itemID int NOT NULL PRIMARY KEY,
+    name varchar(255),
+    description varchar(255)
+);
+
+CREATE TABLE Hardware (
+    hardwareID int NOT NULL PRIMARY KEY,
     name varchar(255),
     description varchar(255)
 );
@@ -12,20 +31,19 @@ CREATE TABLE Services (
     description varchar(255)
 ); 
 
-CREATE TABLE ItemInServiceUse (
-    itemID int FOREIGN KEY REFERENCES Items(itemID),
+CREATE TABLE HardwareInServiceUse (
+    hardwareID int FOREIGN KEY REFERENCES Hardware(hardwareID),
     serviceID int FOREIGN KEY REFERENCES Services(serviceID),
 );
 
-CREATE TABLE People ();
+CREATE TABLE CustomerPurchases ();
 
-CREATE TABLE Supplier ();
+CREATE TABLE Deliveries ();
 
-CREATE TABLE Employee ();
+CREATE TABLE PurchaseFromSupplier ();
 
-CREATE TABLE Customer ();
+CREATE TABLE EmployeePerformService ();
 
-CREATE TABLE Items ();
 
 #INSERT STATEMENTS
 
