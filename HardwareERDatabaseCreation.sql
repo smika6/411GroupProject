@@ -1,7 +1,11 @@
 #CREATETABLE STATEMENTS
 CREATE TABLE Address ();
 
-CREATE TABLE PersonAddress ();
+CREATE TABLE PersonAddress (
+    PersonId
+
+
+);
 
 CREATE TABLE SupplierLocation ();
 
@@ -9,7 +13,10 @@ CREATE TABLE Person ();
 
 CREATE TABLE Employee ();
 
-CREATE TABLE Customer ();
+CREATE TABLE Customer (
+    itemId int FOREIGN KEY REFERENCES item(ItemID)
+
+);
 
 CREATE TABLE Supplier ();
 
@@ -32,17 +39,42 @@ CREATE TABLE Services (
 ); 
 
 CREATE TABLE HardwareInServiceUse (
+
     hardwareID int FOREIGN KEY REFERENCES Hardware(hardwareID),
     serviceID int FOREIGN KEY REFERENCES Services(serviceID),
+    
 );
 
-CREATE TABLE CustomerPurchases ();
+CREATE TABLE CustomerPurchases (
 
-CREATE TABLE Deliveries ();
+     quantity varchar(255),
+     Price varchar(255),
+     customerID int FOREIGN KEY REFERENCES Customer(CustomerID),
+     itemID int FOREIGN KEY REFERENCES Item(ItemID)
 
-CREATE TABLE PurchaseFromSupplier ();
 
-CREATE TABLE EmployeePerformService ();
+);
+
+CREATE TABLE Deliveries (
+    date varchar(40),
+
+
+
+);
+
+CREATE TABLE PurchaseFromSupplier (
+
+
+);
+
+CREATE TABLE EmployeePerformService (
+    hours varchar(255),
+    date varchar(40),
+    PRIMARY ?
+    Foreign ?
+
+
+);
 
 
 #INSERT STATEMENTS
