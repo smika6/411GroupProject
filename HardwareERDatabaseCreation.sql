@@ -76,64 +76,64 @@ CREATE TABLE EmployeePerformService ();
 #INSERT STATEMENTS 
 
 # addresses of people(pid, streetAddress, city, state):
-INSERT INTO PersonAddress (10234,"342 streetA","Monticello","MN");
-INSERT INTO PersonAddress (11567,"65 streetS","St Cloud","MN");
-INSERT INTO PersonAddress (3289,"892 streetM","Minneapolis","MN");
-INSERT INTO PersonAddress (17645,"342 streetB","Monticello","MN");
-INSERT INTO PersonAddress (88331,"342 streetC","Monticello","MN");
-INSERT INTO PersonAddress (74591,"999 streetG","Duluth","MN");
-INSERT INTO PersonAddress (,"344 streetA","Monticello","MN");
+INSERT INTO PersonAddress (10234,'342 streetA','Monticello','MN');
+INSERT INTO PersonAddress (11567,'65 streetS','St Cloud','MN');
+INSERT INTO PersonAddress (3289,'892 streetM','Minneapolis','MN');
+INSERT INTO PersonAddress (17645,'342 streetB','Monticello','MN');
+INSERT INTO PersonAddress (88331,'342 streetC','Monticello','MN');
+INSERT INTO PersonAddress (74591,'999 streetG','Duluth','MN');
+INSERT INTO PersonAddress (,'344 streetA','Monticello','MN');
 
 #wholesale suppliers address (wid, streetAddress, city, state)
-INSERT INTO SupplierLocation (7760,"60 steetG","St. Paul","MN");
-INSERT INTO SupplierLocation (7760,"75 streetT","Duluth","MN");
-INSERT INTO SupplierLocation (7761,"6 streetA","St. Paul","MN");
-INSERT INTO SupplierLocation (98760,"798 StreetE","Duluth","MN");
+INSERT INTO SupplierLocation (7760,'60 steetG','St. Paul','MN');
+INSERT INTO SupplierLocation (7760,'75 streetT','Duluth','MN');
+INSERT INTO SupplierLocation (7761,'6 streetA','St. Paul','MN');
+INSERT INTO SupplierLocation (98760,'798 StreetE','Duluth','MN');
 
 #employees (pid, name)
-INSERT INTO Employee (10234,"Able");
-INSERT INTO Employee (11567,"Baker");
-INSERT INTO Employee (3289,"George");
-INSERT INTO Employee (88331,"Alice");
+INSERT INTO Employee (10234,'Able');
+INSERT INTO Employee (11567,'Baker');
+INSERT INTO Employee (3289,'George');
+INSERT INTO Employee (88331,'Alice');
 
 
 # customers(pid, name)
-INSERT INTO Customer (3289,"George");
-INSERT INTO Customer (88331,"Alice");
-INSERT INTO Customer (74591,"Jane");
-INSERT INTO Customer (10234,"Able");
+INSERT INTO Customer (3289,'George');
+INSERT INTO Customer (88331,'Alice');
+INSERT INTO Customer (74591,'Jane');
+INSERT INTO Customer (10234,'Able');
 
 #neither customers nor employees(pid, name)
-INSERT INTO Person (17645,"Bill");
+INSERT INTO Person (17645,'Bill');
 
 # Wholesale Suppliers (wid, name)
-INSERT INTO Supplier (7760,"ABC-Supply");
-INSERT INTO Supplier (7761,"MyHWCo");
-INSERT INTO Supplier (98760,"LightCo");
+INSERT INTO Supplier (7760,'ABC-Supply');
+INSERT INTO Supplier (7761,'MyHWCo');
+INSERT INTO Supplier (98760,'LightCo');
 
 
 #hardware items (iid, name, description)
-INSERT INTO Hardware (2,"cement","60 lb , bag of cement");
-INSERT INTO Hardware (4,"paint","gallon of white paint");
-INSERT INTO Hardware (10,"nail","2 in nail");
-INSERT INTO Hardware (12,"nail","3 in nail");
-INSERT INTO Hardware (14,"nail","4 in nail");
-INSERT INTO Hardware (16,"bolt","2 in bolt");
-INSERT INTO Hardware (20,"light bulb","40 watt");
-INSERT INTO Hardware (22,"light bulb","60 watt");
-INSERT INTO Hardware (24,"light bulb","10 watt LED");
-INSERT INTO Hardware (26,"light bulb","14 watt LED");
-INSERT INTO Hardware (28,"glaze","16 ounces");
-INSERT INTO Hardware (29,"grill","40lb barbeque");
-INSERT INTO Hardware (30,"key","key blank - type 1");
-INSERT INTO Hardware (32,"key","key blank - type 2");
-INSERT INTO Hardware (34,"grass seed","1 pound");
+INSERT INTO Hardware (2,'cement','60 lb , bag of cement');
+INSERT INTO Hardware (4,'paint','gallon of white paint');
+INSERT INTO Hardware (10,'nail','2 in nail');
+INSERT INTO Hardware (12,'nail','3 in nail');
+INSERT INTO Hardware (14,'nail','4 in nail');
+INSERT INTO Hardware (16,'bolt','2 in bolt');
+INSERT INTO Hardware (20,'light bulb','40 watt');
+INSERT INTO Hardware (22,'light bulb','60 watt');
+INSERT INTO Hardware (24,'light bulb','10 watt LED');
+INSERT INTO Hardware (26,'light bulb','14 watt LED');
+INSERT INTO Hardware (28,'glaze','16 ounces');
+INSERT INTO Hardware (29,'grill','40lb barbeque');
+INSERT INTO Hardware (30,'key','key blank - type 1');
+INSERT INTO Hardware (32,'key','key blank - type 2');
+INSERT INTO Hardware (34,'grass seed','1 pound');
 
 #services (iid, name, description)
-INSERT INTO Services (100,"duplicate","type 1 key");
-INSERT INTO Services (101,"duplicate","type 2 key");
-INSERT INTO Services (102,"repair","re-glaze window");
-INSERT INTO Services (103,"rent","seed spreader");
+INSERT INTO Services (100,'duplicate','type 1 key');
+INSERT INTO Services (101,'duplicate','type 2 key');
+INSERT INTO Services (102,'repair','re-glaze window');
+INSERT INTO Services (103,'rent','seed spreader');
 
 #ServiceHardwareUse (service-iid, hardware-iid)
 INSERT INTO HardwareInServiceUse (100,30);
@@ -159,8 +159,8 @@ INSERT INTO CustomerPurchases (10234,16,150,15);
 INSERT INTO CustomerPurchases (10234,100,1,1);
 
 #Deliveries  (customer pid, iid, streetAddress, city, state, date, employee pid)
-INSERT INTO Deliveries (3289,29,"65 streetS","St. Cloud","MN","8/31/21",3289);
-INSERT INTO Deliveries (74591,4,"344 streetA","Monticello","MN","9/10/21",3289);
+INSERT INTO Deliveries (3289,29,'65 streetS','St. Cloud','MN','8/31/21',3289);
+INSERT INTO Deliveries (74591,4,'344 streetA','Monticello','MN','9/10/21',3289);
 
 # wholesale supplier hardware store purchases (iid, wid, quantity, unit-cost)
 INSERT INTO PurchaseFromSupplier (2,7760,50,3);
@@ -172,7 +172,7 @@ INSERT INTO PurchaseFromSupplier (14,7761,20000,0.02);
 INSERT INTO PurchaseFromSupplier (28,7760,288,2);
 
 #employeed performed servicesice (employee-pid, customer-pid, iid, date, hours)
-INSERT INTO EmployeePerformService (11567,3289,100,"09/09/21",0.1);
-INSERT INTO EmployeePerformService (11567,3289,101,"09/08/21",0.1);
-INSERT INTO EmployeePerformService (10234,10231,100,"09/12/21",0.1);
+INSERT INTO EmployeePerformService (11567,3289,100,'09/09/21',0.1);
+INSERT INTO EmployeePerformService (11567,3289,101,'09/08/21',0.1);
+INSERT INTO EmployeePerformService (10234,10231,100,'09/12/21',0.1);
 
