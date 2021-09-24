@@ -1,0 +1,45 @@
+/*
+1) address
+2) person address
+3) supplier location
+4) person
+5) employee
+6) customer
+7) supplier
+8) Items
+9) hardware items
+10) service items
+11) HW used in service
+12) customer purchases
+13) deliveries
+14) purchase from supplier
+15) employee perform service
+*/
+
+
+--create employee table
+CREATE TABLE employee(
+employee_ID INTEGER,
+employee_name VARCHAR(20),
+PRIMARY KEY (employee_ID)
+);
+
+INSERT INTO employee(employee_ID, employee_name) VALUES(10234, 'Able');
+INSERT INTO employee(employee_ID, employee_name) VALUES(11567, 'Baker');
+INSERT INTO employee(employee_ID, employee_name) VALUES(3289, 'George');
+INSERT INTO employee(employee_ID, employee_name) VALUES(88331, 'Alice');
+
+--create address table
+CREATE TABLE address(
+street_address VARCHAR(30),
+city VARCHAR(30),
+lives_in_state VARCHAR(30),
+PRIMARY KEY(street_address, city, lives_in_state)
+);
+
+INSERT INTO address(street_address, city, lives_in_state) VALUES ('342 streetA', 'Monticello', 'Mn');
+INSERT INTO address(street_address, city, lives_in_state) VALUES ('65 streetS', 'St Cloud', 'MN');
+INSERT INTO address(street_address, city, lives_in_state) VALUES ('892 streetM', 'Minneapolis', 'MN');
+INSERT INTO address(street_address, city, lives_in_state) VALUES ('342 streetB', 'Monticello', 'MN');
+INSERT INTO address(street_address, city, lives_in_state) VALUES ('342 streetC', 'Monticello', 'MN');
+INSERT INTO address(street_address, city, lives_in_state) VALUES ('344 streetA', 'Monticello', 'MN');
