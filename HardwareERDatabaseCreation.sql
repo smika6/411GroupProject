@@ -63,8 +63,12 @@ CREATE TABLE Deliveries (
 );
 
 CREATE TABLE PurchaseFromSupplier (
-
-
+    wID int NOT NULL PRIMARY KEY,
+    wID int,
+    StreetAddress varchar(10),
+    City varchar(10),
+    State varchar(2),
+    FOREIGN KEY (Street, City, State) REFERENCES Address
 );
 
 CREATE TABLE EmployeePerformService (
