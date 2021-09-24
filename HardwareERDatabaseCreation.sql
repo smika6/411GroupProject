@@ -104,7 +104,7 @@ INSERT INTO  (74591,"Jane");
 INSERT INTO  (10234,"Able");
 
 #neither customers nor employees(pid, name)
-INSERT INTO Person (17645,"Bill")
+INSERT INTO Person (17645,"Bill");
 
 # Wholesale Suppliers (wid, name)
 INSERT INTO  (7760,"ABC-Supply");
@@ -141,16 +141,38 @@ INSERT INTO HardwareInServiceUse (101,32);
 INSERT INTO HardwareInServiceUse (102,28);
 INSERT INTO HardwareInServiceUse (103,34);
 
-INSERT INTO  ();
-INSERT INTO  ();
-INSERT INTO  ();
-INSERT INTO  ();
-INSERT INTO  ();
+#Customer purchases (pid, iid, quantity, price)
+INSERT INTO  (3289,100,2,2);
+INSERT INTO  (3289,101,1,1);
+INSERT INTO  (3289,29,1,300);
+INSERT INTO  (88331,26,32,160);
+INSERT INTO  (88331,24,2,20);
+INSERT INTO  (88331,20,2,25);
+INSERT INTO  (88331,4,7,70);
+INSERT INTO  (74591,4,3,90);
+INSERT INTO  (74591,28,1,5);
+INSERT INTO  (74591,20,4,12);
+INSERT INTO  (74591,103,1,10);
+INSERT INTO  (10234,2,25,125);
+INSERT INTO  (10234,14,100,5);
+INSERT INTO  (10234,16,150,15);
+INSERT INTO  (10234,100,1,1);
 
-INSERT INTO  (,"","","");
-INSERT INTO  (,"","","");
-INSERT INTO  (,"","","");
-INSERT INTO  (,"","","");
-INSERT INTO  (,"","");
+#Deliveries  (customer pid, iid, streetAddress, city, state, date, employee pid)
+INSERT INTO  (3289,29,"65 streetS","St. Cloud","MN","8/31/21",3289);
+INSERT INTO  (74591,4,"344 streetA","Monticello","MN","9/10/21",3289);
 
+# wholesale supplier hardware store purchases (iid, wid, quantity, unit-cost)
+INSERT INTO (2,7760,50,3);
+INSERT INTO (16,7760,1440,0.05);
+INSERT INTO (29,7761,10,200);
+INSERT INTO (24,98760,100,5);
+INSERT INTO (26,98760,250,6);
+INSERT INTO (14,7761,20000,0.02);
+INSERT INTO (28,7760,288,2);
+
+#employeed performed servicesice (employee-pid, customer-pid, iid, date, hours)
+INSERT INTO (11567,3289,100,"09/09/21",0.1);
+INSERT INTO (11567,3289,101,"09/08/21",0.1);
+INSERT INTO (10234,10231,100,"09/12/21",0.1);
 
