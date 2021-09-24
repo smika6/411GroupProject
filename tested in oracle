@@ -1,22 +1,22 @@
-/*Works on Oracle
-1) address
-2) person address
-3) supplier location
-4) person
-5) employee
-6) customer
-7) supplier
-8) Items
-9) hardware items
-10) service items
+/*Works in oracle
+1) address-
+2) person address-
+3) supplier location-
+4) person-
+5) employee-
+6) customer-
+7) supplier-
+8) Items-
+9) hardware items-
+10) service items-
 11) HW used in service
 12) customer purchases
 13) deliveries
 14) purchase from supplier
 15) employee perform service
 */
---create people table
-CREATE TABLE p(
+--create person table
+CREATE TABLE person(
 person_id INTEGER,
 person_name VARCHAR(20),
 PRIMARY KEY (person_ID)
@@ -25,8 +25,13 @@ PRIMARY KEY (person_ID)
 --create employee table
 CREATE TABLE employee(
 employee_ID INTEGER,
-employee_name VARCHAR(20),
 PRIMARY KEY (employee_ID)
+);
+
+--create customer table
+CREATE TABLE customer(
+customer_id INTEGER,
+PRIMARY KEY (customer_id)
 );
 
 --create address table
@@ -46,6 +51,44 @@ lives_in_state VARCHAR(30),
 PRIMARY KEY(person_id, street_address, city, lives_in_state)
 );
 
+--create item table
+CREATE TABLE item(
+item_id INTEGER,
+item_name VARCHAR(20),
+item_description VARCHAR(100),
+PRIMARY KEY (item_id)
+);
+
+--create WSupplier table
+CREATE TABLE whole_sale_supplier(
+supplier_id INTEGER,
+supplier_name VARCHAR(20),
+PRIMARY KEY (supplier_id)
+);
+
+
+--create located_at table
+CREATE TABLE located_at(
+supplier_id INTEGER,
+street_address VARCHAR(30),
+city VARCHAR(30),
+lives_in_state VARCHAR(30),
+PRIMARY KEY(supplier_id, street_address, city, lives_in_state)
+);
+
+--create hardware table
+CREATE TABLE hardware(
+hardware_id INTEGER,
+PRIMARY KEY (hardware_id)
+);
+
+--create service table
+CREATE TABLE service_(
+service_id INTEGER,
+PRIMARY KEY (service_id)
+);
+
+
 --populate person table
 INSERT INTO person(person_id, person_name) VALUES(17645, 'Bill');
 INSERT INTO person(person_id, person_name) VALUES(10234, 'Able');
@@ -55,10 +98,16 @@ INSERT INTO person(person_id, person_name) VALUES(88331, 'Alice');
 INSERT INTO person(person_id, person_name) VALUES(74591, 'Jane');
 
 --populate employee
-INSERT INTO employee(employee_ID, employee_name) VALUES(10234, 'Able');
-INSERT INTO employee(employee_ID, employee_name) VALUES(11567, 'Baker');
-INSERT INTO employee(employee_ID, employee_name) VALUES(3289, 'George');
-INSERT INTO employee(employee_ID, employee_name) VALUES(88331, 'Alice');
+INSERT INTO employee(employee_ID) VALUES(10234);
+INSERT INTO employee(employee_ID) VALUES(11567);
+INSERT INTO employee(employee_ID) VALUES(3289);
+INSERT INTO employee(employee_ID) VALUES(88331);
+
+--populate customer table
+INSERT INTO customer(customer_id) VALUES(3289);
+INSERT INTO customer(customer_id) VALUES(88331);
+INSERT INTO customer(customer_id) VALUES(74591);
+INSERT INTO customer(customer_id) VALUES(10234);
 
 --populate address
 INSERT INTO address(street_address, city, lives_in_state) VALUES ('342 streetA', 'Monticello', 'Mn');
@@ -79,3 +128,58 @@ INSERT INTO lives_at(person_id, street_address, city, lives_in_state) VALUES (32
 INSERT INTO lives_at(person_id, street_address, city, lives_in_state) VALUES (17645, '342 streetB', 'Monticello', 'MN');
 INSERT INTO lives_at(person_id, street_address, city, lives_in_state) VALUES (74591, '342 streetC', 'Monticello', 'MN');
 INSERT INTO lives_at(person_id, street_address, city, lives_in_state) VALUES (74591, '344 streetA', 'Monticello', 'MN');
+
+--populate item table
+INSERT INTO item(item_id, item_name, item_description) VALUES (2, 'cement', '60lb bag of cement');
+INSERT INTO item(item_id, item_name, item_description) VALUES (4,'paint','gallon of white paint');
+INSERT INTO item(item_id, item_name, item_description) VALUES (10,'nail','2 in nail');
+INSERT INTO item(item_id, item_name, item_description) VALUES (12,'nail','3 in nail');
+INSERT INTO item(item_id, item_name, item_description) VALUES (14,'nail','4 in nail');
+INSERT INTO item(item_id, item_name, item_description) VALUES (16,'bolt','2 in bolt');
+INSERT INTO item(item_id, item_name, item_description) VALUES (20,'light bulb','40 watt');
+INSERT INTO item(item_id, item_name, item_description) VALUES (22,'light bulb','60 watt');
+INSERT INTO item(item_id, item_name, item_description) VALUES (24,'light bulb','10 watt LED');
+INSERT INTO item(item_id, item_name, item_description) VALUES (26,'light bulb','14 watt LED');
+INSERT INTO item(item_id, item_name, item_description) VALUES (28,'glaze','16 ounces');
+INSERT INTO item(item_id, item_name, item_description) VALUES (29,'grill','40lb barbeque');
+INSERT INTO item(item_id, item_name, item_description) VALUES (30,'key','key blank - type 1');
+INSERT INTO item(item_id, item_name, item_description) VALUES (32,'key','key blank - type 2');
+INSERT INTO item(item_id, item_name, item_description) VALUES (34,'grass seed','1 pound');
+INSERT INTO item(item_id, item_name, item_description) VALUES (100, 'duplicate', 'type 1 key');
+INSERT INTO item(item_id, item_name, item_description) VALUES (101, 'duplicate', 'type 2 key');
+INSERT INTO item(item_id, item_name, item_description) VALUES (102,'repair','re-glaze window');
+INSERT INTO item(item_id, item_name, item_description) VALUES (103,'rent','seed spreader');
+
+--populate WSupplier table
+INSERT INTO whole_sale_supplier(supplier_id, supplier_name) VALUES(7760, 'ABC-Supply');
+INSERT INTO whole_sale_supplier(supplier_id, supplier_name) VALUES(7761, 'MyHWCo');
+INSERT INTO whole_sale_supplier(supplier_id, supplier_name) VALUES(98760, 'LightCo');
+
+--populate located_at table
+INSERT INTO located_at(supplier_id, street_address, city, lives_in_state) VALUES (7760, '60 streetG', 'St. Paul', 'MN');
+INSERT INTO located_at(supplier_id, street_address, city, lives_in_state) VALUES (7760, '75 streetT', 'Duluth', 'MN');
+INSERT INTO located_at(supplier_id, street_address, city, lives_in_state) VALUES (3289, '60 streetA', 'St. Paul', 'MN');
+INSERT INTO located_at(supplier_id, street_address, city, lives_in_state) VALUES (98760, '789 StreetE', 'Duluth', 'MN');
+
+
+--populate hardware table
+INSERT INTO hardware(hardware_id) VALUES(2);
+INSERT INTO hardware(hardware_id) VALUES(4);
+INSERT INTO hardware(hardware_id) VALUES(10);
+INSERT INTO hardware(hardware_id) VALUES(12);
+INSERT INTO hardware(hardware_id) VALUES(14);
+INSERT INTO hardware(hardware_id) VALUES(16);
+INSERT INTO hardware(hardware_id) VALUES(20);
+INSERT INTO hardware(hardware_id) VALUES(22);
+INSERT INTO hardware(hardware_id) VALUES(24);
+INSERT INTO hardware(hardware_id) VALUES(26);
+INSERT INTO hardware(hardware_id) VALUES(28);
+INSERT INTO hardware(hardware_id) VALUES(29);
+INSERT INTO hardware(hardware_id) VALUES(30);
+INSERT INTO hardware(hardware_id) VALUES(32);
+INSERT INTO hardware(hardware_id) VALUES(34);
+
+INSERT INTO service_(service_id) VALUES(100);
+INSERT INTO service_(service_id) VALUES(101);
+INSERT INTO service_(service_id) VALUES(102);
+INSERT INTO service_(service_id) VALUES(103);
