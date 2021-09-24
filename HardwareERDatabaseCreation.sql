@@ -15,12 +15,10 @@ CREATE TABLE PersonAddress (
 );
 
 CREATE TABLE SupplierLocation (
-    wID int NOT NULL PRIMARY KEY,
-    wID int,
-    StreetAddress varchar(10),
-    City varchar(10),
-    State varchar(2),
-    FOREIGN KEY (Street, City, State) REFERENCES Address
+    wsstreetID int NOT NULL PRIMARY KEY,
+    wsstreet varchar(255),
+    wscity varchar(255),
+    wsstate varchar(2)
 );
 
 CREATE TABLE Person (
@@ -75,7 +73,44 @@ CREATE TABLE PurchaseFromSupplier ();
 CREATE TABLE EmployeePerformService ();
 
 
-#INSERT STATEMENTS
+#INSERT STATEMENTS 
+
+# addresses of people(pid, streetAddress, city, state):
+INSERT INTO  (10234,"342 streetA","Monticello","MN");
+INSERT INTO  (11567,"65 streetS","St Cloud","MN");
+INSERT INTO  (3289,"892 streetM","Minneapolis","MN");
+INSERT INTO  (17645,"342 streetB","Monticello","MN");
+INSERT INTO  (88331,"342 streetC","Monticello","MN");
+INSERT INTO  (74591,"999 streetG","Duluth","MN");
+INSERT INTO  (,"344 streetA","Monticello","MN");
+
+#wholesale suppliers address (wid, streetAddress, city, state)
+INSERT INTO  (7760,"60 steetG","St. Paul","MN");
+INSERT INTO  (7760,"75 streetT","Duluth","MN");
+INSERT INTO  (7761,"6 streetA","St. Paul","MN");
+INSERT INTO  (98760,"798 StreetE","Duluth","MN");
+
+#employees (pid, name)
+INSERT INTO  (10234,"Able");
+INSERT INTO  (11567,"Baker");
+INSERT INTO  (3289,"George");
+INSERT INTO  (88331,"Alice");
+
+
+# customers(pid, name)
+INSERT INTO  (3289,"George");
+INSERT INTO  (88331,"Alice");
+INSERT INTO  (74591,"Jane");
+INSERT INTO  (10234,"Able");
+
+#neither customers nor employees(pid, name)
+INSERT INTO Person (17645,"Bill")
+
+# Wholesale Suppliers (wid, name)
+INSERT INTO  (7760,"ABC-Supply");
+INSERT INTO  (7761,"MyHWCo");
+INSERT INTO  (98760,"LightCo");
+
 
 #hardware items (iid, name, description)
 INSERT INTO  (2,"cement","60 lb , bag of cement");
@@ -112,7 +147,10 @@ INSERT INTO  ();
 INSERT INTO  ();
 INSERT INTO  ();
 
-INSERT INTO  (,"","");
+INSERT INTO  (,"","","");
+INSERT INTO  (,"","","");
+INSERT INTO  (,"","","");
+INSERT INTO  (,"","","");
 INSERT INTO  (,"","");
 
 
