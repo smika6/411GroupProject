@@ -1,4 +1,4 @@
-/*
+/*Works on Oracle
 1) address
 2) person address
 3) supplier location
@@ -15,7 +15,12 @@
 14) purchase from supplier
 15) employee perform service
 */
-
+--create people table
+CREATE TABLE p(
+person_id INTEGER,
+person_name VARCHAR(20),
+PRIMARY KEY (person_ID)
+);
 
 --create employee table
 CREATE TABLE employee(
@@ -23,11 +28,6 @@ employee_ID INTEGER,
 employee_name VARCHAR(20),
 PRIMARY KEY (employee_ID)
 );
-
-INSERT INTO employee(employee_ID, employee_name) VALUES(10234, 'Able');
-INSERT INTO employee(employee_ID, employee_name) VALUES(11567, 'Baker');
-INSERT INTO employee(employee_ID, employee_name) VALUES(3289, 'George');
-INSERT INTO employee(employee_ID, employee_name) VALUES(88331, 'Alice');
 
 --create address table
 CREATE TABLE address(
@@ -37,9 +37,45 @@ lives_in_state VARCHAR(30),
 PRIMARY KEY(street_address, city, lives_in_state)
 );
 
+--create lives_at table
+CREATE TABLE lives_at(
+person_id INTEGER,
+street_address VARCHAR(30),
+city VARCHAR(30),
+lives_in_state VARCHAR(30),
+PRIMARY KEY(person_id, street_address, city, lives_in_state)
+);
+
+--populate person table
+INSERT INTO person(person_id, person_name) VALUES(17645, 'Bill');
+INSERT INTO person(person_id, person_name) VALUES(10234, 'Able');
+INSERT INTO person(person_id, person_name) VALUES(11567, 'Baker');
+INSERT INTO person(person_id, person_name) VALUES(3289, 'George');
+INSERT INTO person(person_id, person_name) VALUES(88331, 'Alice');
+INSERT INTO person(person_id, person_name) VALUES(74591, 'Jane');
+
+--populate employee
+INSERT INTO employee(employee_ID, employee_name) VALUES(10234, 'Able');
+INSERT INTO employee(employee_ID, employee_name) VALUES(11567, 'Baker');
+INSERT INTO employee(employee_ID, employee_name) VALUES(3289, 'George');
+INSERT INTO employee(employee_ID, employee_name) VALUES(88331, 'Alice');
+
+--populate address
 INSERT INTO address(street_address, city, lives_in_state) VALUES ('342 streetA', 'Monticello', 'Mn');
 INSERT INTO address(street_address, city, lives_in_state) VALUES ('65 streetS', 'St Cloud', 'MN');
 INSERT INTO address(street_address, city, lives_in_state) VALUES ('892 streetM', 'Minneapolis', 'MN');
 INSERT INTO address(street_address, city, lives_in_state) VALUES ('342 streetB', 'Monticello', 'MN');
 INSERT INTO address(street_address, city, lives_in_state) VALUES ('342 streetC', 'Monticello', 'MN');
 INSERT INTO address(street_address, city, lives_in_state) VALUES ('344 streetA', 'Monticello', 'MN');
+INSERT INTO address(street_address, city, lives_in_state) VALUES ('60 streetG', 'St. Paul', 'MN');
+INSERT INTO address(street_address, city, lives_in_state) VALUES ('75 streetT', 'Duluth', 'MN');
+INSERT INTO address(street_address, city, lives_in_state) VALUES ('60 streetA', 'St. Paul', 'MN');
+INSERT INTO address(street_address, city, lives_in_state) VALUES ('789 StreetE', 'Duluth', 'MN');
+
+--populate lives_at
+INSERT INTO lives_at(person_id, street_address, city, lives_in_state) VALUES (10234, '342 streetA', 'Monticello', 'Mn');
+INSERT INTO lives_at(person_id, street_address, city, lives_in_state) VALUES (11567, '65 streetS', 'St Cloud', 'MN');
+INSERT INTO lives_at(person_id, street_address, city, lives_in_state) VALUES (3289, '892 streetM', 'Minneapolis', 'MN');
+INSERT INTO lives_at(person_id, street_address, city, lives_in_state) VALUES (17645, '342 streetB', 'Monticello', 'MN');
+INSERT INTO lives_at(person_id, street_address, city, lives_in_state) VALUES (74591, '342 streetC', 'Monticello', 'MN');
+INSERT INTO lives_at(person_id, street_address, city, lives_in_state) VALUES (74591, '344 streetA', 'Monticello', 'MN');
