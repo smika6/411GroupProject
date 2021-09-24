@@ -64,13 +64,36 @@ CREATE TABLE HardwareInServiceUse (
     serviceID int FOREIGN KEY REFERENCES Services(serviceID),
 );
 
-CREATE TABLE CustomerPurchases ();
+CREATE TABLE CustomerPurchases (
+    customerID int FOREIGN KEY REFERENCES Customer(customerID),
+    itemID int FOREIGN KEY REFERENCES Item(itemID),
+    quantity int,
+    price REAL,
+);
 
-CREATE TABLE Deliveries ();
+CREATE TABLE Deliveries (
+    itemID int FOREIGN KEY REFERENCES CustomerPurchases(itemID),
+    customerID int FOREIGN KEY REFERENCES CustomerPurchases(customerID),
+    employeeID int FORGEIN KEY REFERENCES Employee(EmployeeID),
+    deliveryDate charvar(250),
+    customerAddress varchar(250) FOREIGN KEY REFERENCES (
+        SELECT PA.pstreet, PA.pcity, PA.pstate 
+        FROM Customer C, PersonAddress PA
+        WHERE C.customerID = PA.pstreetID )
+    
+    
+);
 
-CREATE TABLE PurchaseFromSupplier ();
+CREATE TABLE PurchaseFromSupplier (
+    quantity int,
+    unitCost REAL,
+    itemID int FOREIGN KEY REFERENCES Item(itemID),
+    supplierID int FOREIGN KEY REFERENCES Supplier(supplierID)
+);
 
-CREATE TABLE EmployeePerformService ();
+CREATE TABLE EmployeePerformService (
+    
+);
 
 
 #INSERT STATEMENTS 
@@ -82,7 +105,7 @@ INSERT INTO PersonAddress (3289,'892 streetM','Minneapolis','MN');
 INSERT INTO PersonAddress (17645,'342 streetB','Monticello','MN');
 INSERT INTO PersonAddress (88331,'342 streetC','Monticello','MN');
 INSERT INTO PersonAddress (74591,'999 streetG','Duluth','MN');
-INSERT INTO PersonAddress (,'344 streetA','Monticello','MN');
+INSERT INTO PersonAddress (74591,'344 streetA','Monticello','MN');
 
 #wholesale suppliers address (wid, streetAddress, city, state)
 INSERT INTO SupplierLocation (7760,'60 steetG','St. Paul','MN');
