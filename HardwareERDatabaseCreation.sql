@@ -7,10 +7,8 @@ CREATE TABLE Address (
 );
 
 CREATE TABLE PersonAddress (
-    pstreetID int NOT NULL PRIMARY KEY,
-    pstreet varchar(255),
-    pcity varchar(255),
-    pstate varchar(2)
+    PRIMARY KEY(StreetAddress, City, State, pid)
+    
 
 );
 
