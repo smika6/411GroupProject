@@ -33,6 +33,8 @@ CREATE TABLE Employee (
     name varchar(255),
     employeeAddress varchar(250) FOREIGN KEY REFERENCES (streetAddress, city, state)
     FOREIGN KEY pid References Person(pid),
+
+   **Do we need the customerID in here since its connected to Employee?** customerID int FOREIGN KEY REFERENCES Customer(customerID),
 );
 
 CREATE TABLE Customer (
