@@ -1,26 +1,27 @@
 #CREATETABLE STATEMENTS
-CREATE TABLE Address (
-    streetID int NOT NULL PRIMARY KEY,
+CREATE Address TABLE (
+    PRIMARY KEY(streetAddress),
     street varchar(255),
     city varchar(255),
     state varchar(2)
 );
 
-CREATE TABLE PersonAddress (
+CREATE PersonAddress TABLE(
     PRIMARY KEY(StreetAddress, City, State, pid)
     
 
 );
 
-CREATE TABLE SupplierLocation (
-    wsstreetID int NOT NULL PRIMARY KEY,
+CREATE SupplierLocation Table (
+    PRIMARY KEY(wsstreetAddress),
     wsstreet varchar(255),
     wscity varchar(255),
     wsstate varchar(2)
 );
 
-CREATE TABLE Person (
-    personID int NOT NULL PRIMARY KEY,
+CREATE Person Table (
+    PRIMARY KEY (pid),
+    pid varchar(250),
     name varchar(255),
     personAddress varchar(250) FOREIGN KEY REFERENCES (streetAddress, city, state),
     FOREIGN KEY employeeID REFERENCES Employee(employeeID),
@@ -28,8 +29,9 @@ CREATE TABLE Person (
 
 );
 
-CREATE TABLE Employee (
-    employeeID int NOT NULL PRIMARY KEY,
+CREATE Employee TABLE (
+    PRIMARY KEY(employeeID),
+    employeeID varchar(250), 
     name varchar(255),
     employeeAddress varchar(250) FOREIGN KEY REFERENCES (streetAddress, city, state)
     FOREIGN KEY pid References Person(pid),
@@ -37,49 +39,50 @@ CREATE TABLE Employee (
    **Do we need the customerID in here since its connected to Employee?** customerID int FOREIGN KEY REFERENCES Customer(customerID),
 );
 
-CREATE TABLE Customer (
-    customerID int NOT NULL PRIMARY KEY,
+CREATE Customer  TABLE(
+     PRIMARY KEY(customerID),
     name varchar(255),
     employeeAddress varchar(250) FOREIGN KEY REFERENCES (streetAddress, city, state),
     itemID int FOREIGN KEY REFERENCES Item(itemID)
 );
 
-CREATE TABLE Supplier (
-    supplierID int NOT NULL PRIMARY KEY,
+CREATE Supplier TABLE (
+    PRIMARY KEY(supplierID),
+    supplier_id INTEGER,
     name varchar(255)
 );
 
-CREATE TABLE Items (
-    itemID int NOT NULL PRIMARY KEY,
+CREATE Items TABLE(
+    PRIMARY KEY(itemID),
     name varchar(255),
     description varchar(255)
 );
 
-CREATE TABLE Hardware (
-    hardwareID int NOT NULL PRIMARY KEY,
+CREATE Hardware TABLE(
+    PRIMARY KEY(hardwareID),
     name varchar(255),
     description varchar(255)
 );
 
-CREATE TABLE Services (
-    serviceID int NOT NULL PRIMARY KEY,
+CREATE Services TABLE(
+    PRIMARY KEY(serviceID),
     name varchar(255),
     description varchar(255)
 ); 
 
-CREATE TABLE HardwareInServiceUse (
+CREATE HardwareInServiceUse TABLE (
     FOREIGN KEY hardwareID REFERENCES Hardware(hardwareID),
     FOREIGN KEY serviceID REFERENCES Services(serviceID),
 );
 
-CREATE TABLE CustomerPurchases (
+CREATE CustomerPurchases TABLE (
     customerID int FOREIGN KEY REFERENCES Customer(customerID),
     itemID int FOREIGN KEY REFERENCES Item(itemID),
     quantity int,
     price REAL,
 );
 
-CREATE TABLE Deliveries (
+CREATE Deliveries TABLE (
     itemID int FOREIGN KEY REFERENCES CustomerPurchases(itemID),
     customerID int FOREIGN KEY REFERENCES CustomerPurchases(customerID),
     employeeID int FOREIGN KEY REFERENCES Employee(EmployeeID),
@@ -92,14 +95,14 @@ CREATE TABLE Deliveries (
     
 );
 
-CREATE TABLE PurchaseFromSupplier (
+CREATE PurchaseFromSupplier TABLE(
     quantity int,
     unitCost REAL,
     itemID int FOREIGN KEY REFERENCES Item(itemID),
     supplierID int FOREIGN KEY REFERENCES Supplier(supplierID)
 );
 
-CREATE TABLE EmployeePerformService (
+CREATE EmployeePerformService TABLE (
     hours varchar(10),
     date varchar(40),
 
