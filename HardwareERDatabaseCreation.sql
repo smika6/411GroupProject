@@ -23,7 +23,8 @@ CREATE TABLE Person (
     personID int NOT NULL PRIMARY KEY,
     name varchar(255),
     personAddress varchar(250) FOREIGN KEY REFERENCES (streetAddress, city, state),
-    **NOT SURE ABOUT THIS ONE serviceID** int FOREIGN KEY REFERENCES Services(serviceID)
+    FOREIGN KEY employeeID REFERENCES Employee(employeeID),
+    customerID int FOREIGN KEY REFERENCES Customer(customerID),
 
 );
 
@@ -31,12 +32,14 @@ CREATE TABLE Employee (
     employeeID int NOT NULL PRIMARY KEY,
     name varchar(255),
     employeeAddress varchar(250) FOREIGN KEY REFERENCES (streetAddress, city, state)
-
+    FOREIGN KEY pid References Person(pid),
 );
 
 CREATE TABLE Customer (
     customerID int NOT NULL PRIMARY KEY,
-    name varchar(255)
+    name varchar(255),
+    employeeAddress varchar(250) FOREIGN KEY REFERENCES (streetAddress, city, state),
+    itemID int FOREIGN KEY REFERENCES Item(itemID)
 );
 
 CREATE TABLE Supplier (
@@ -63,8 +66,8 @@ CREATE TABLE Services (
 ); 
 
 CREATE TABLE HardwareInServiceUse (
-    hardwareID int FOREIGN KEY REFERENCES Hardware(hardwareID),
-    serviceID int FOREIGN KEY REFERENCES Services(serviceID),
+    FOREIGN KEY hardwareID REFERENCES Hardware(hardwareID),
+    FOREIGN KEY serviceID REFERENCES Services(serviceID),
 );
 
 CREATE TABLE CustomerPurchases (
