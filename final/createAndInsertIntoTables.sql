@@ -117,7 +117,7 @@ INSERT INTO PersonAddress VALUES (3289,'892 streetM','Minneapolis','MN');
 INSERT INTO PersonAddress VALUES (17645,'342 streetB','Monticello','MN');
 INSERT INTO PersonAddress VALUES (88331,'342 streetC','Monticello','MN');
 INSERT INTO PersonAddress VALUES (74591,'999 streetG','Duluth','MN');
-INSERT INTO PersonAddress VALUES (74591,'344 streetA','Monticello','MN');
+INSERT INTO PersonAddress VALUES (NULL,'344 streetA','Monticello','MN');
 
 INSERT INTO SupplierLocation VALUES (7760,'60 steetG','St. Paul','MN');
 INSERT INTO SupplierLocation VALUES (7760,'75 streetT','Duluth','MN');
