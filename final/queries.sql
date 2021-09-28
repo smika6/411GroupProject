@@ -28,3 +28,14 @@ FROM CustomerPurchases cpt, Services S
 WHERE cpt.itemID = s.serviceID) b
 ON a.customerID = b.customerID
 WHERE b.customerID IS NULL;
+
+/*problem d */
+SELECT c.cname, c.customerID, cp.itemID,  cp.price*cp.quantity
+FROM CustomerPurchases cp, CUSTOMER c
+WHERE
+c.customerID = cp.customerID AND
+cp.price * cp.quantity = (SELECT MIN(cp.price*cp.quantity)
+FROM CustomerPurchases cp, Hardware h
+WHERE
+cp.itemID = h.hardwareID);
+
