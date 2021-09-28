@@ -40,7 +40,7 @@ CREATE Employee TABLE (
 );
 
 CREATE Customer  TABLE(
-     PRIMARY KEY(customerID),
+    PRIMARY KEY(customerID),
     name varchar(255),
     employeeAddress varchar(250) FOREIGN KEY REFERENCES (streetAddress, city, state),
     itemID int FOREIGN KEY REFERENCES Item(itemID)
@@ -213,4 +213,21 @@ INSERT INTO PurchaseFromSupplier (28,7760,288,2);
 INSERT INTO EmployeePerformService (11567,3289,100,'09/09/21',0.1);
 INSERT INTO EmployeePerformService (11567,3289,101,'09/08/21',0.1);
 INSERT INTO EmployeePerformService (10234,10231,100,'09/12/21',0.1);
+
+
+#query E
+
+SELECT DISTINCT p.pid, p.name
+FROM Person p, Services s, CustomerPurchases cp, Customer c 
+WHERE p.pid = c.id 
+AND
+c.id = cp.id
+AND
+cp.id = s.id
+AND
+s.id EXCEPT
+(SELECT pe.id
+FROM Performs pe
+WHERE p.id = pe.id ) 
+
 
