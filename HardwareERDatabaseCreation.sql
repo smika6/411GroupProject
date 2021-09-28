@@ -1,9 +1,9 @@
-#CREATETABLE STATEMENTS
+/*CREATETABLE STATEMENTS*/
 CREATE TABLE Address (
-    streetID int NOT NULL PRIMARY KEY,
-    street varchar(255),
-    city varchar(255),
-    state varchar(2)
+    astreetID int NOT NULL PRIMARY KEY,
+    astreet varchar(255),
+    acity varchar(255),
+    astate varchar(2)
 );
 
 CREATE TABLE PersonAddress (
@@ -60,23 +60,23 @@ CREATE TABLE Services (
 ); 
 
 CREATE TABLE HardwareInServiceUse (
-    hardwareID int FOREIGN KEY REFERENCES Hardware(hardwareID),
-    serviceID int FOREIGN KEY REFERENCES Services(serviceID),
+   FOREIGN KEY(hardwareID) REFERENCES Hardware(hardwareID),
+   FOREIGN KEY(serviceID) REFERENCES Services(serviceID)
 );
 
 CREATE TABLE CustomerPurchases (
-    customerID int FOREIGN KEY REFERENCES Customer(customerID),
-    itemID int FOREIGN KEY REFERENCES Item(itemID),
+    FOREIGN KEY(customerID) REFERENCES Customer(customerID),
+    FOREIGN KEY(itemID) REFERENCES Item(itemID),
     quantity int,
-    price REAL,
+    price REAL
 );
 
 CREATE TABLE Deliveries (
-    itemID int FOREIGN KEY REFERENCES CustomerPurchases(itemID),
-    customerID int FOREIGN KEY REFERENCES CustomerPurchases(customerID),
-    employeeID int FORGEIN KEY REFERENCES Employee(EmployeeID),
+    FOREIGN KEY(itemID) REFERENCES CustomerPurchases(itemID),
+    FOREIGN KEY(customerID) REFERENCES CustomerPurchases(customerID),
+    FOREIGN KEY(employeeID) REFERENCES Employee(EmployeeID),
     deliveryDate charvar(250),
-    customerAddress varchar(250) FOREIGN KEY REFERENCES (
+     FOREIGN KEY(customerAddress) REFERENCES (
         SELECT PA.pstreet, PA.pcity, PA.pstate 
         FROM Customer C, PersonAddress PA
         WHERE C.customerID = PA.pstreetID )
@@ -87,16 +87,20 @@ CREATE TABLE Deliveries (
 CREATE TABLE PurchaseFromSupplier (
     quantity int,
     unitCost REAL,
-    itemID int FOREIGN KEY REFERENCES Item(itemID),
-    supplierID int FOREIGN KEY REFERENCES Supplier(supplierID)
+    FOREIGN KEY(itemID) REFERENCES Item(itemID),
+    FOREIGN KEY(supplierID) REFERENCES Supplier(supplierID)
 );
 
 CREATE TABLE EmployeePerformService (
-    
+    FOREIGN KEY(employee-pid) REFERENCES Employee(employeeID),
+    FOREIGN KEY(customer-pid) REFERENCES Customer(customerID),
+    FOREIGN KEY(iid) REFERENCES Item(itemID),
+    sDate date,
+    sHours REAL
 );
 
 
-#INSERT STATEMENTS 
+/*INSERT STATEMENTS*/ 
 
 /* addresses of people(pid, streetAddress, city, state):*/
 INSERT INTO PersonAddress (10234,'342 streetA','Monticello','MN');
@@ -126,7 +130,7 @@ INSERT INTO Customer (88331,'Alice');
 INSERT INTO Customer (74591,'Jane');
 INSERT INTO Customer (10234,'Able');
 
-/* neither customers nor employees(pid, name)*/
+/*neither customers nor employees(pid, name)*/
 INSERT INTO Person (17645,'Bill');
 
 /* Wholesale Suppliers (wid, name)*/
@@ -135,7 +139,7 @@ INSERT INTO Supplier (7761,'MyHWCo');
 INSERT INTO Supplier (98760,'LightCo');
 
 
-/* hardware items (iid, name, description)*/
+/*hardware items (iid, name, description)*/
 INSERT INTO Hardware (2,'cement','60 lb , bag of cement');
 INSERT INTO Hardware (4,'paint','gallon of white paint');
 INSERT INTO Hardware (10,'nail','2 in nail');
@@ -152,19 +156,19 @@ INSERT INTO Hardware (30,'key','key blank - type 1');
 INSERT INTO Hardware (32,'key','key blank - type 2');
 INSERT INTO Hardware (34,'grass seed','1 pound');
 
-/* services (iid, name, description)*/
+/*services (iid, name, description)*/
 INSERT INTO Services (100,'duplicate','type 1 key');
 INSERT INTO Services (101,'duplicate','type 2 key');
 INSERT INTO Services (102,'repair','re-glaze window');
 INSERT INTO Services (103,'rent','seed spreader');
 
-/* ServiceHardwareUse (service-iid, hardware-iid)*/
+/*ServiceHardwareUse (service-iid, hardware-iid)*/
 INSERT INTO HardwareInServiceUse (100,30);
 INSERT INTO HardwareInServiceUse (101,32);
 INSERT INTO HardwareInServiceUse (102,28);
 INSERT INTO HardwareInServiceUse (103,34);
 
-/* Customer purchases (pid, iid, quantity, price)*/
+/*Customer purchases (pid, iid, quantity, price)*/
 INSERT INTO CustomerPurchases (3289,100,2,2);
 INSERT INTO CustomerPurchases (3289,101,1,1);
 INSERT INTO CustomerPurchases (3289,29,1,300);
@@ -181,11 +185,11 @@ INSERT INTO CustomerPurchases (10234,14,100,5);
 INSERT INTO CustomerPurchases (10234,16,150,15);
 INSERT INTO CustomerPurchases (10234,100,1,1);
 
-/* Deliveries  (customer pid, iid, streetAddress, city, state, date, employee pid)*/
+/*Deliveries  (customer pid, iid, streetAddress, city, state, date, employee pid)*/
 INSERT INTO Deliveries (3289,29,'65 streetS','St. Cloud','MN','8/31/21',3289);
 INSERT INTO Deliveries (74591,4,'344 streetA','Monticello','MN','9/10/21',3289);
 
-/* wholesale supplier hardware store purchases (iid, wid, quantity, unit-cost)*/
+/*wholesale supplier hardware store purchases (iid, wid, quantity, unit-cost)*/
 INSERT INTO PurchaseFromSupplier (2,7760,50,3);
 INSERT INTO PurchaseFromSupplier (16,7760,1440,0.05);
 INSERT INTO PurchaseFromSupplier (29,7761,10,200);
@@ -198,4 +202,3 @@ INSERT INTO PurchaseFromSupplier (28,7760,288,2);
 INSERT INTO EmployeePerformService (11567,3289,100,'09/09/21',0.1);
 INSERT INTO EmployeePerformService (11567,3289,101,'09/08/21',0.1);
 INSERT INTO EmployeePerformService (10234,10231,100,'09/12/21',0.1);
-
