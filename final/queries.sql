@@ -19,3 +19,12 @@ AND i.itemID = d.itemID
 
 AND d.streetAddress = a.astreet;
 
+/*problem c */
+SELECT count (distinct a.customerID)  "hardware only customers count"
+FROM CustomerPurchases a
+LEFT JOIN 
+(SELECT cpt.customerID
+FROM CustomerPurchases cpt, Services S
+WHERE cpt.itemID = s.serviceID) b
+ON a.customerID = b.customerID
+WHERE b.customerID IS NULL;
