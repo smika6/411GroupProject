@@ -86,12 +86,11 @@ p.personID NOT IN (SELECT e.customerID from Customer c);
 
 /*additional 2*/
 /* Show the hardware item that has the highest total purchase price from the store */
-SELECT h.hardwareID, h.hname, h.hdescription, pfs.price * pfs.quantity
+SELECT h.hardwareID, h.hname, h.hdescription, pfs.unitCost * pfs.quantity
 FROM Hardware h, PurchaseFromSupplier pfs
 WHERE
 h.hardwareID = pfs.itemID
 AND
-pfs.price * pfs.quantity = (SELECT MAX(pfs.price * pfs.quantity) 
-                                               FROM PurchaseFromSupplier pfs, Hardware h
-                                                WHERE
-                                                 h.hardwareID = pfs.hardwareID)
+pfs.unitCost * pfs.quantity = (SELECT MAX(pfs.unitCost * pfs.quantity) 
+                            FROM PurchaseFromSupplier pfs, Hardware h
+                            WHERE h.hardwareID = pfs.itemID);
