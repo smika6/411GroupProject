@@ -39,3 +39,12 @@ FROM CustomerPurchases cp, Hardware h
 WHERE
 cp.itemID = h.hardwareID);
 
+/*problem e */
+SELECT DISTINCT c.customerID, c.cname
+FROM EmployeePerformService eps, CUSTOMER c
+WHERE 
+eps.customer_pid = c.customerID
+AND
+eps.employee_pid != eps.customer_pid;
+
+
