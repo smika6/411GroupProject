@@ -82,7 +82,7 @@ a.astreetID = p.personID
 AND
 p.personID NOT IN (SELECT e.employeeID from Employee e)
 AND
-p.personID NOT IN (SELECT e.customerID from Customer c);
+p.personID NOT IN (SELECT c.customerID from Customer c);
 
 /*additional 2*/
 /* Show the hardware item that has the highest total purchase price from the store */
