@@ -63,4 +63,12 @@ CASE WHEN e.employeeID IS IN (SELECT eps.employeeID from EmployeePerformService 
 CASE WHEN e.employeeID IS IN (SELECT d.employeeID from Deliveries d) THEN 'YES' ELSE 'NO' END CASE "Serviced Something"
 FROM Employee e; 
 
+/*problem h*/
+
+
+/*additional 1*/
+
+
+/*additional 2*/
+
 
