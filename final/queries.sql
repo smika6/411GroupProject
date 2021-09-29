@@ -57,4 +57,10 @@ hsu.serviceID = s.serviceID
 AND
 hsu.hardwareID = h.hardwareID;
 
+/*problem g*/
+SELECT e.employeeID "Employee ID", e.name "Employee Name", 
+CASE WHEN e.employeeID IS IN (SELECT eps.employeeID from EmployeePerformService eps) THEN 'YES' ELSE 'NO' END CASE "Serviced Something", 
+CASE WHEN e.employeeID IS IN (SELECT d.employeeID from Deliveries d) THEN 'YES' ELSE 'NO' END CASE "Serviced Something"
+FROM Employee e; 
+
 
