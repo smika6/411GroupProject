@@ -64,11 +64,34 @@ CASE WHEN e.employeeID IS IN (SELECT d.employeeID from Deliveries d) THEN 'YES' 
 FROM Employee e; 
 
 /*problem h*/
-
+SELECT h.hardwareID, SUM(cp.quantity) , SUM(pfs.quantity)
+FROM Hardware h, CustomerPurchases cp, PurchaseFromSupplier pfs
+WHERE 
+h.hardwareID = cp.itemID
+AND
+h.hardwareID = pfs.itemID
+GROUP BY h.hardwareID;
 
 /*additional 1*/
+/* Additional Queries: List the complete addresses of People who are neither Customers nor Employees.*/
 
+SELECT p.pname, a.astreet, a.acity, a.astate
+FROM ADDRESS a, Person p
+WHERE
+a.astreetID = p.personID 
+AND
+p.personID NOT IN (SELECT e.employeeID from Employee e)
+AND
+p.personID NOT IN (SELECT e.customerID from Customer c);
 
 /*additional 2*/
-
-
+/* Show the hardware item that has the highest total purchase price from the store */
+SELECT h.hardwareID, h.hname, h.hdescription, pfs.price * pfs.quantity
+FROM Hardware h, PurchaseFromSupplier pfs
+WHERE
+h.hardwareID = pfs.itemID
+AND
+pfs.price * pfs.quantity = (SELECT MAX(pfs.price * pfs.quantity) 
+                                               FROM PurchaseFromSupplier pfs, Hardware h
+                                                WHERE
+                                                 h.hardwareID = pfs.hardwareID)
