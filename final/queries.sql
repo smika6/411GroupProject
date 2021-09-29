@@ -63,12 +63,14 @@ FROM Employee e
 ORDER BY e.employeeID;
 
 /*problem h*/
-SELECT h.hardwareID, SUM(cp.quantity) , SUM(pfs.quantity)
+SELECT h.hardwareID, SUM(NVL(cp.quantity, 0)), SUM(NVL(pfs.quantity, 0))
 FROM Hardware h, CustomerPurchases cp, PurchaseFromSupplier pfs
 WHERE 
-h.hardwareID = cp.itemID
+h.hardwareID IN (SELECT cp.itemID FROM CustomerPurchases cp)
 AND
-h.hardwareID = pfs.itemID
+(h.hardwareID = cp.itemID
+AND
+h.hardwareID = pfs.itemID)
 GROUP BY h.hardwareID;
 
 /*additional 1*/
