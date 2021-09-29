@@ -47,4 +47,14 @@ eps.customer_pid = c.customerID
 AND
 eps.employee_pid != eps.customer_pid;
 
+/*UNTESTED*/
+
+/*problem f*/
+SELECT s.serviceID, s.sname, s.sdescription, h.hardwareID, h.hname, h.hdescription
+FROM Services s, Hardware h, HardwareInServiceUse hsu
+WHERE
+hsu.serviceID = s.serviceID
+AND
+hsu.hardwareID = h.hardwareID;
+
 
