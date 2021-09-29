@@ -58,10 +58,11 @@ AND
 hsu.hardwareID = h.hardwareID;
 
 /*problem g*/
-SELECT e.employeeID "Employee ID", e.name "Employee Name", 
-CASE WHEN e.employeeID IS IN (SELECT eps.employeeID from EmployeePerformService eps) THEN 'YES' ELSE 'NO' END CASE "Serviced Something", 
-CASE WHEN e.employeeID IS IN (SELECT d.employeeID from Deliveries d) THEN 'YES' ELSE 'NO' END CASE "Serviced Something"
-FROM Employee e; 
+SELECT e.employeeID, e.ename, 
+CASE WHEN e.employeeID IN (SELECT eps.employee_pid FROM EmployeePerformService eps) THEN 'YES' ELSE 'NO' END "Performed Service", 
+CASE WHEN e.employeeID IN (SELECT d.employeeID FROM Deliveries d) THEN 'YES' ELSE 'NO' END "Performed Delivery"
+FROM Employee e
+ORDER BY e.employeeID;
 
 /*problem h*/
 SELECT h.hardwareID, SUM(cp.quantity) , SUM(pfs.quantity)
