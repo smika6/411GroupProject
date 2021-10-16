@@ -1,7 +1,8 @@
 # 411GroupProject
 SQL Project 2
-Due: November 3, 2021
-Points: 75
+  Due: November 3, 2021
+  Points: 75
+
 Purpose: The objective of this project is to gain additional experience with ER diagrams and SQL.
 Requirements:
   For this assignment you are to model a digital library. Examples of digital libraries include the
