@@ -47,3 +47,11 @@ CREATE TABLE REFERENCES
   FOREIGN KEY(pid1) REFERENCES PUBLICATION(pid),
   FOREIGN KEY(pid2) REFERENCES PUBLICATION(pid)
 );
+
+
+
+INSERT INTO AUTHOR VALUES (111, 'Ernest Hemingway','907 Whitehead Street, Key West, FL','hemingway.or.the@highway.com');
+INSERT INTO AUTHOR VALUES (137, 'Natsume Akatsuki','1345 Shouta, Tokyo, Japan','Jitakukeibihei@kadokawa.com');
+INSERT INTO AUTHOR VALUES (156, 'J.K. Rowling', '557 Broadway, New York, NY', 'info@jkrowling.com');
+INSERT INTO AUTHOR VALUES (746, 'Michael J. Donahoo', '30 Corporate Dr, Suite 400, Burlington, MA', 'mdonahoo@mkp.com');
+INSERT INTO AUTHOR VALUES (645, 'Harry R. Lewis', '1563 Main, Upper Saddle River, NJ', 'hlewis1@prenticehall.com');
