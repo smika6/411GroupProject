@@ -19,6 +19,7 @@ CREATE TABLE AUTHOR
 CREATE TABLE USER
 (
   uid int NOT NULL PRIMARY KEY,
+  uname varchar(50),
   access varchar(50),
   password varchar(50)
 );
@@ -55,3 +56,10 @@ INSERT INTO AUTHOR VALUES (137, 'Natsume Akatsuki','1345 Shouta, Tokyo, Japan','
 INSERT INTO AUTHOR VALUES (156, 'J.K. Rowling', '557 Broadway, New York, NY', 'info@jkrowling.com');
 INSERT INTO AUTHOR VALUES (746, 'Michael J. Donahoo', '30 Corporate Dr, Suite 400, Burlington, MA', 'mdonahoo@mkp.com');
 INSERT INTO AUTHOR VALUES (645, 'Harry R. Lewis', '1563 Main, Upper Saddle River, NJ', 'hlewis1@prenticehall.com');
+INSERT INTO AUTHOR VALUES (375, 'Christos H. Papadimitiou', '1563 Main, Upper Saddle River, NJ', 'chpapa@prenticehall.com');
+INSERT INTO AUTHOR VALUES (876, 'Kenneth L. Calvert', '30 Corporate Dr, Suite 401, Burlington, MA', 'kcalvert@mkp.com');
+
+INSERT INTO USER VALUES (001, 'Patrick Beech', 'admin', '0x15323bcf34');
+INSERT INTO USER VALUES (020, 'Kwinton Dropps', 'gold user', 'theDrippinDropp$');
+INSERT INTO USER VALUES (021, 'Jacob Hopkins', 'banned', 'xD9_smika');
+INSERT INTO USER VALUES (423, 'Rose Hughes', 'silver user', 'green_discordFace1');
