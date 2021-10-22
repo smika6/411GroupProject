@@ -70,3 +70,11 @@ INSERT INTO PUBLICATION VALUES (124953, 'ancient tome', 'Elements of the theory 
 INSERT INTO PUBLICATION VALUES (837593, 'literary fiction', 'The old man and the sea', '06/17/1952', 'Charles Scribners Sons', 'Yo its me that old man by the sea.');
 INSERT INTO PUBLICATION VALUES (923856, 'light novel', 'Kono Subarashii Sekai ni Shukufuku o! Vol. 1', '12/20/2012', 'Yen Press', 'Oh man, I was hit by a truck... nvm dead.');
 INSERT INTO PUBLICATION VALUES (147384, 'fiction', 'Harry Potter and the Stone or something', '11/24/2012', 'Bloomsbury Publishing', 'You are a hairy wizard, Harry');
+
+INSERT INTO WROTE VALUES (837593, 111);
+INSERT INTO WROTE VALUES (923856, 137);
+INSERT INTO WROTE VALUES (147384, 156);
+INSERT INTO WROTE VALUES (124953, 645);
+INSERT INTO WROTE VALUES (124953, 876);
+INSERT INTO WROTE VALUES (133412, 746);
+INSERT INTO WROTE VALUES (133412, 375);
