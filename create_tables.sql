@@ -29,7 +29,7 @@ CREATE TABLE VIEW
 (
   pid int,
   uid int,
-  view_date date,
+  view_date varchar(10),
   FOREIGN KEY(pid) REFERENCES PUBLICATION(pid),
   FOREIGN KEY(uid) REFERENCES USER(uid)
 );
@@ -62,7 +62,7 @@ INSERT INTO AUTHOR VALUES (876, 'Kenneth L. Calvert', '30 Corporate Dr, Suite 40
 
 INSERT INTO USER VALUES (001, 'Patrick Beech', 'admin', '0x15323bcf34');
 INSERT INTO USER VALUES (020, 'Kwinton Dropps', 'gold user', 'theDrippinDropp$');
-INSERT INTO USER VALUES (021, 'Jacob Hopkins', 'banned', 'xD9_smika');
+INSERT INTO USER VALUES (621, 'Jacob Hopkins', 'banned', 'xD9_smika');
 INSERT INTO USER VALUES (423, 'Rose Hughes', 'silver user', 'green_discordFace1');
 
 INSERT INTO PUBLICATION VALUES (133412, 'textbook', 'TCP/IP SOCKETS in C', '03/03/2009', 'MKP', 'This textbook is about sockets in C');
@@ -81,3 +81,9 @@ INSERT INTO WROTE VALUES (133412, 375);
 
 INSERT INTO REFERENCE VALUES (133412, 124953);
 INSERT INTO REFERENCE VALUES (124953, 837593);
+
+INSERT INTO VIEW VALUES (837593, 020, '10/22/2021');
+INSERT INTO VIEW VALUES (837593, 001, '10/21/2021');
+INSERT INTO VIEW VALUES (837593, 001, '10/22/2021');
+INSERT INTO VIEW VALUES (123953, 621, '10/14/2021');
+INSERT INTO VIEW VALUES (923856, 423, '09/09/2021');
