@@ -5,7 +5,8 @@ CREATE TABLE PUBLICATION
   type varchar(50),
   title varchar(50),
   publish_date date,
-  publisher varchar(50)
+  publisher varchar(50),
+  content varchar(250)
 );
 
 CREATE TABLE AUTHOR
@@ -63,3 +64,9 @@ INSERT INTO USER VALUES (001, 'Patrick Beech', 'admin', '0x15323bcf34');
 INSERT INTO USER VALUES (020, 'Kwinton Dropps', 'gold user', 'theDrippinDropp$');
 INSERT INTO USER VALUES (021, 'Jacob Hopkins', 'banned', 'xD9_smika');
 INSERT INTO USER VALUES (423, 'Rose Hughes', 'silver user', 'green_discordFace1');
+
+INSERT INTO PUBLICATION VALUES (133412, 'textbook', 'TCP/IP SOCKETS in C', 03/03/2009, 'MKP', 'This textbook is about sockets in C');
+INSERT INTO PUBLICATION VALUES (124953, 'ancient tome', 'Elements of the theory of computation', 05/14/1998, 'Pretence Hall', 'to out daughters...');
+INSERT INTO PUBLICATION VALUES (837593, 'literary fiction', 'The old man and the sea', 06/17/1952, 'Charles Scribners Sons', 'Yo its me that old man by the sea.');
+INSERT INTO PUBLICATION VALUES (923856, 'light novel', 'Kono Subarashii Sekai ni Shukufuku o! Vol. 1', 12/20/2012, 'Yen Press', 'Oh man, I was hit by a truck... nvm dead.');
+INSERT INTO PUBLICATION VALUES (147384, 'fiction', 'Harry Potter and the Stone or something', 11/24/2012, 'Bloomsbury Publishing', 'You are a hairy wizard, Harry');
