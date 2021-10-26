@@ -37,13 +37,14 @@ CREATE TABLE PUBLICATION
 CREATE TABLE AUTHOR
 (
   aid int NOT NULL PRIMARY KEY,
+  aemail varchar(50),
   FOREIGN KEY(aid) REFERENCES PERSON(pid)
 );
 
 CREATE TABLE USER
 (
   uid int NOT NULL PRIMARY KEY,
-  email varchar(50),
+  uemail varchar(50),
   access_type varchar(50),
   password varchar(50),
   FOREIGN KEY(uid) REFERENCES PERSON(pid)
