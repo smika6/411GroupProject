@@ -86,9 +86,9 @@ INSERT INTO AUTHOR VALUES (375, 'Christos H. Papadimitiou', '1563 Main, Upper Sa
 INSERT INTO AUTHOR VALUES (876, 'Kenneth L. Calvert', '30 Corporate Dr, Suite 401, Burlington, MA', 'kcalvert@mkp.com');
 
 INSERT INTO USER VALUES (001, 'Patrick Beech', 'admin', '0x15323bcf34');
-INSERT INTO USER VALUES (020, 'Kwinton Dropps', 'gold user', 'theDrippinDropp$');
-INSERT INTO USER VALUES (621, 'Jacob Hopkins', 'banned', 'xD9_smika');
-INSERT INTO USER VALUES (423, 'Rose Hughes', 'silver user', 'green_discordFace1');
+INSERT INTO USER VALUES (020, 'Kwinton Dropps', 'granted', 'theDrippinDropp$');
+INSERT INTO USER VALUES (621, 'Jacob Hopkins', 'fee's due', 'xD9_smika');
+INSERT INTO USER VALUES (423, 'Rose Hughes', 'author', 'green_discordFace1');
 
 INSERT INTO PUBLICATION VALUES (133412, 'textbook', 'TCP/IP SOCKETS in C', '03/03/2009', 'MKP', 'This textbook is about sockets in C');
 INSERT INTO PUBLICATION VALUES (124953, 'ancient tome', 'Elements of the theory of computation', '05/14/1998', 'Pretence Hall', 'to out daughters...');
