@@ -1,3 +1,27 @@
+CREATE TABLE PERSON
+(
+  int pid NOT NULL PRIMARY KEY,
+  name varchar(50)
+  int aid,
+  FOREIGN KEY(aid) REFERENCES ADDRESS(address_id)
+);
+
+CREATE TABLE ADDRESS
+(
+  address_id int NOT NULL PRIMARY KEY,
+  street varchar(50),
+  city varchar(50),
+  state varchar(2),
+  zip varchar(5)
+);
+
+CREATE TABLE PUBLISHER
+(
+  int pubid NOT NULL PRIMARY KEY,
+  pname varchar(50)
+  int aid,
+  FOREIGN KEY(aid) REFERENCES ADDRESS(address_id)
+);
 
 CREATE TABLE PUBLICATION
 (
@@ -5,24 +29,24 @@ CREATE TABLE PUBLICATION
   type varchar(50),
   title varchar(50),
   publish_date varchar(10),
-  publisher varchar(50),
-  content varchar(250)
+  pubid int,
+  content varchar(250),
+  FOREIGN KEY(pubid) REFERENCES PUBLISHER(pubid)
 );
 
 CREATE TABLE AUTHOR
 (
   aid int NOT NULL PRIMARY KEY,
-  aname varchar(50),
-  address varchar(50),
-  email varchar(50)
+  FOREIGN KEY(aid) REFERENCES PERSON(pid)
 );
 
 CREATE TABLE USER
 (
   uid int NOT NULL PRIMARY KEY,
-  uname varchar(50),
-  access varchar(50),
-  password varchar(50)
+  email varchar(50),
+  access_type varchar(50),
+  password varchar(50),
+  FOREIGN KEY(uid) REFERENCES PERSON(pid)
 );
  
 CREATE TABLE VIEW
