@@ -75,7 +75,7 @@ CREATE TABLE REFERENCE
 );
 
 
-
+/*
 INSERT INTO AUTHOR VALUES (111, 'Ernest Hemingway','907 Whitehead Street, Key West, FL','hemingway.or.the@highway.com');
 INSERT INTO AUTHOR VALUES (137, 'Natsume Akatsuki','1345 Shouta, Tokyo, Japan','Jitakukeibihei@kadokawa.com');
 INSERT INTO AUTHOR VALUES (156, 'J.K. Rowling', '557 Broadway, New York, NY', 'info@jkrowling.com');
@@ -111,3 +111,4 @@ INSERT INTO VIEW VALUES (837593, 001, '10/21/2021');
 INSERT INTO VIEW VALUES (837593, 001, '10/22/2021');
 INSERT INTO VIEW VALUES (123953, 621, '10/14/2021');
 INSERT INTO VIEW VALUES (923856, 423, '09/09/2021');
+*/
