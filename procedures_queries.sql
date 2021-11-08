@@ -1,3 +1,16 @@
+--Query1:--
+Select Pub.publication_date as "Earliest Publication" 
+From
+(
+    SELECT MIN(EXTRACT(year FROM P.publish_date)) as publication_date
+    FROM Publishes P, Publication pub
+    WHERE Pub.pid = P.pid
+)Pub;
+
+
+--Justification: Items are choosen by using equijoin with Pub.id and P.id. The minimum year is selected from publish_date. Then the year that the item was written should be displayed.--
+
+
 ---Jacob---
 ---STORED PROCEDURE 1---
 CREATE OR REPLACE PROCEDURE validateUserAccess(userlogin varchar2, userpassword varchar2)
