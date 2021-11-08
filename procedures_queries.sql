@@ -7,7 +7,11 @@ From
     WHERE Pub.pid = P.pid
 )Pub;
 
-
+--Query 2--
+SELECT DISTINCT pub.title, pub.type
+FROM PUBLICATION pub, WRITES w, EDITS e
+WHERE pub.pid = w.pid
+AND w.aid <> e.aid;
 --Justification: Items are choosen by using equijoin with Pub.id and P.id. The minimum year is selected from publish_date. Then the year that the item was written should be displayed.--
 
 
