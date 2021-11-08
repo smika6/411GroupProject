@@ -53,7 +53,7 @@ CREATE TABLE REFERENCES(
 CREATE TABLE PUBACCESSES (
   pid int,
   userid int,
-  view_date varchar(15),
+  view_date DATE,
   FOREIGN KEY(pid) REFERENCES PUBLICATION(pid),
   FOREIGN KEY(userid) REFERENCES USERS(userid)
 );
@@ -76,7 +76,7 @@ CREATE TABLE EDITS(
 CREATE TABLE PUBLISHES (
   pid int NOT NULL,
   pubid number NOT NULL,
-  publish_date varchar(35) NOT NULL,
+  publish_date DATE,
   FOREIGN KEY (pubid) references PUBLISHER (pubid),
   FOREIGN KEY (pid) references PUBLICATION (pid) ON DELETE CASCADE
 );
