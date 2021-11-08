@@ -11,6 +11,18 @@ From
 --Justification: Items are choosen by using equijoin with Pub.id and P.id. The minimum year is selected from publish_date. Then the year that the item was written should be displayed.--
 
 
+
+--Query5:--
+SELECT DISTINCT EXTRACT(year FROM pub1.publish_date) as "Publishing Year", p1.title as BOOK_TITLE, p2.title as JOURNAL_TITLE
+FROM Publishes pub1, Publishes pub2, PUBLICATION p1, PUBLICATION p2
+WHERE p1.type = 'Book'
+AND p2.type = 'Journal'
+AND pub1.publish_date = pub2.publish_date
+AND p1.pid = pub1.pid
+AND p2.pid = pub2.pid
+
+
+--Justification:  Books and Journals are first selected, they are matched if they have the same publishing date.The publication id must also be the same as the publishes id then the books and journals titles along with the year they matched is displayed.
 ---Jacob---
 ---STORED PROCEDURE 1---
 CREATE OR REPLACE PROCEDURE validateUserAccess(userlogin varchar2, userpassword varchar2)
