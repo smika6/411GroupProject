@@ -221,17 +221,17 @@ EXECUTE deleteUserPerson(0000);
 ---STORED PROCEDURE QUERY 7---
 
 
-CREATE OR REPLACE PROCEDURE accessPublicationsOfType (userID int, type varchar2)
+CREATE OR REPLACE PROCEDURE accessPublicationsOfType (userID int, atype varchar2)
 IS
 BEGIN
 
-    DBMS_OUTPUT.PUT_LINE('All Publications of type ' || type || ':');
+    DBMS_OUTPUT.PUT_LINE('All Publications of type ' || atype || ':');
     DBMS_OUTPUT.PUT_LINE('[');
     
     FOR cursor IN (
                 SELECT title, pubcontent 
                 FROM Publication p
-                WHERE p.type = type) 
+                WHERE p.type = atype) 
     LOOP
     DBMS_OUTPUT.PUT_LINE('Title: ' || cursor.title);
     DBMS_OUTPUT.PUT_LINE('Content: ' || cursor.pubcontent);
